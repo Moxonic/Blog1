@@ -15,14 +15,30 @@ const contactContent =
 
 const app = express();
 
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); /* EJS looks in the views folder */
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.render("home", {firstP: homeStartingContent});
 });
+app.get("/about", (req, res) => {
+  res.render("about", {firstAboutP: aboutContent});
+});
+app.get("/contact", (req, res) => {
+  res.render("contact", {firstContactP: contactContent});
+});
+app.get("/compose", (req, res) => {
+  res.render("compose", {firstContactP: contactContent});
+});
+app.post("/compose", (req,res)=>{
+  console.log(req.body.composition);
+ 
+});
+
 
 app.listen(3000, function () {
   console.log("& Server started on port 3000");
