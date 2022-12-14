@@ -35,7 +35,7 @@ app.get("/compose", (req, res) => {
   res.render("compose", {firstContactP: contactContent});
 });
 app.post("/compose", (req,res)=>{
-  console.log(req.body.composition);
+  console.log(req.body.title);
  
 });
 
