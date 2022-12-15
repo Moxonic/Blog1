@@ -1,4 +1,9 @@
 <%-include("partials/header");-%> 
     <h1>Home</h1>
-    <p> <%= firstP %> </p>
+    <p><%= homeStartingContent.substring(0,20)+ '...' ; %></p>
+    <%  posts.forEach((post) => { %>
+        <h4> <%= post.title %> </h4>
+        <p><%= post.post.substring(0,20)+ '...'; %> </p>
+        <a href="<%= 'post/'+ post.title  %> ">Read More</a>
+    <% });%>
 <%-include("partials/footer");-%> 
